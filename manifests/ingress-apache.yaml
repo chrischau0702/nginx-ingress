@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cpx-ingress
+  namespace: ingress-nginx
+spec:
+  rules:
+  - host: nginx-ingress-gke.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: apache
+          servicePort: 80
+---
