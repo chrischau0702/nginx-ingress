@@ -36,10 +36,12 @@ kubectl create -f https://raw.githubusercontent.com/christus02/nginx-ingress/mas
 
 ## Send traffic to the Microservice:
 
-First capture the External IP (Google Load-balancer's IP) from Kubernetes service
+First capture the External IP (Google Load-balancer's IP) from Kubernetes service.
+
+**note** that the service, deployments and Ingress would be created in a separate namespace - **"ingress-nginx"**
 
 ```
-$ kubectl get svc
+$ kubectl get svc -n ingress-nginx
 NAME            TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 apache          ClusterIP      10.3.250.48    <none>          80/TCP                       1h
 ingress-nginx   LoadBalancer   10.3.243.184   1.1.1.1         80:32309/TCP,443:31980/TCP   1h
